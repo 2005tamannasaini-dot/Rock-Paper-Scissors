@@ -7,6 +7,8 @@ print("=== Welcome to Rock Paper Scissors Game. ===")
 choose = ["rock", "paper", "scissors"]
 computer_choice = random.choice(choose)
 
+computer_score = 0
+user_score = 0
 
 user_choice = input("please choose(Rock/Paper/Scissors) :").lower()
 
@@ -24,7 +26,13 @@ else:
         or (computer_choice == "paper" and user_choice == "scissors") 
         or (computer_choice == "scissors" and  user_choice == "rock")):
         print("you win!.")
+        user_score += 1
 
     else:
-        print("computer wins!.")    
+        print("computer wins!.") 
+        computer_score += 1 
+
+    print("your score:", user_score)
+    print("computer score:", computer_score)      
+      
 
