@@ -43,7 +43,16 @@ while True:
             elif choice =="no":
                 print("Game Over!")
                 print("your score:", user_score)
-                print("computer score:", computer_score)  
+                print("computer score:", computer_score) 
+
+                if user_score > computer_score:
+                    print("you are the winner. 🎉") 
+
+                elif computer_score > user_score:
+                    print("computer is the winner.")
+
+                else:
+                    print("It's a Draw")        
                 quit()
 
             else:
