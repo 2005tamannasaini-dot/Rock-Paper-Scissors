@@ -6,6 +6,18 @@ print("=== Welcome to Rock Paper Scissors Game. ===")
 
 choose = ["rock", "paper", "scissors"]
 
+def get_result(user_choice, computer_choice):
+    if computer_choice == user_choice:
+        return "It's a draw."
+
+    elif ((computer_choice == "rock" and user_choice == "paper")
+        or (computer_choice == "paper" and user_choice == "scissors") 
+        or (computer_choice == "scissors" and  user_choice == "rock")):
+        return "you win!."
+
+    else:
+        return "computer wins!"
+
 def play_game():
     computer_score = 0
     user_score = 0
@@ -22,20 +34,15 @@ def play_game():
             print("your choice:", user_choice)
             print("Computer choice:", computer_choice )
 
-            if computer_choice == user_choice:
-                print("It's a draw.")
+            result = get_result(user_choice, computer_choice)
+            print(result)
 
-            elif ((computer_choice == "rock" and user_choice == "paper")
-                or (computer_choice == "paper" and user_choice == "scissors") 
-                or (computer_choice == "scissors" and  user_choice == "rock")):
-                print("you win!.")
+            if result == "you win!.":
                 user_score += 1
 
-            else:
-                print("computer wins!.") 
-                computer_score += 1 
+            elif result == "computer wins!.":
+                computer_score += 1
 
-            
             while True:
                 choice = input("Play Again?(yes/no):").lower()
                 if choice == "yes":
@@ -59,4 +66,4 @@ def play_game():
                 else:
                     print("please! choose only yes or no.")            
                 
-play_game()
+play_game()        
