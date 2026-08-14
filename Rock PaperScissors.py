@@ -17,53 +17,58 @@ def get_result(user_choice, computer_choice):
 
     else:
         return "computer wins!"
+    
+def get_user_choice():
+    while True:
+        
+        user_choice = input("please choose(Rock/Paper/Scissors) :").lower()
+        if user_choice in choose:
+            return user_choice
+        
+        else:
+            print("Invalid choice! Please choose rock, paper, or scissors.")
 
 def play_game():
     computer_score = 0
     user_score = 0
 
     while True:
+        computer_choice = random.choice(choose)    
+        user_choice = get_user_choice()
 
-        computer_choice = random.choice(choose)
-        user_choice = input("please choose(Rock/Paper/Scissors) :").lower()
+        print("your choice:", user_choice)
+        print("Computer choice:", computer_choice )
 
-        if user_choice not in choose:
-            print("Invalid choice! Please choose rock, paper, or scissors.")
-            
-        else:
-            print("your choice:", user_choice)
-            print("Computer choice:", computer_choice )
+        result = get_result(user_choice, computer_choice)
+        print(result)
 
-            result = get_result(user_choice, computer_choice)
-            print(result)
+        if result == "you win!.":
+            user_score += 1
 
-            if result == "you win!.":
-                user_score += 1
+        elif result == "computer wins!":
+            computer_score += 1
 
-            elif result == "computer wins!.":
-                computer_score += 1
+        while True:
+            choice = input("Play Again?(yes/no):").lower()
+            if choice == "yes":
+                break
 
-            while True:
-                choice = input("Play Again?(yes/no):").lower()
-                if choice == "yes":
-                    break
+            elif choice =="no":
+                print("Game Over!")
+                print("your score:", user_score)
+                print("computer score:", computer_score) 
 
-                elif choice =="no":
-                    print("Game Over!")
-                    print("your score:", user_score)
-                    print("computer score:", computer_score) 
+                if user_score > computer_score:
+                    print("you are the winner. 🎉") 
 
-                    if user_score > computer_score:
-                        print("you are the winner. 🎉") 
-
-                    elif computer_score > user_score:
-                        print("computer is the winner.")
-
-                    else:
-                        print("It's a Draw")        
-                    quit()
+                elif computer_score > user_score:
+                    print("computer is the winner.")
 
                 else:
-                    print("please! choose only yes or no.")            
+                    print("It's a Draw")        
+                quit()
+
+            else:
+                print("please! choose only yes or no.")            
                 
 play_game()        
