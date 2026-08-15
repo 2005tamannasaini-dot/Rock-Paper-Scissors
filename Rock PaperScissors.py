@@ -48,27 +48,31 @@ def play_game():
         elif result == "computer wins!":
             computer_score += 1
 
-        while True:
-            choice = input("Play Again?(yes/no):").lower()
-            if choice == "yes":
-                break
-
-            elif choice =="no":
-                print("Game Over!")
-                print("your score:", user_score)
-                print("computer score:", computer_score) 
-
-                if user_score > computer_score:
-                    print("you are the winner. 🎉") 
-
-                elif computer_score > user_score:
-                    print("computer is the winner.")
-
-                else:
-                    print("It's a Draw")        
-                quit()
-
+        if not play_again():
+            print("Game Over!")
+            print("your score:", user_score)
+            print("computer score:", computer_score) 
+            
+            if user_score > computer_score:
+                print("you are the winner. 🎉") 
+            
+            elif computer_score > user_score:
+                print("computer is the winner.")
+            
             else:
-                print("please! choose only yes or no.")            
+                print("It's a Draw")        
+            quit()            
+            
+def play_again():
+    while True:
+        choice = input("Play Again?(yes/no):").lower()
+        if choice == "yes":
+            return True
+
+        elif choice == "no":
+            return False
+
+        else:
+            print("please! choose only yes or no.")            
                 
 play_game()        
