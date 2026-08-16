@@ -48,20 +48,23 @@ def play_game():
         elif result == "computer wins!":
             computer_score += 1
 
-        if not play_again():
-            print("Game Over!")
-            print("your score:", user_score)
-            print("computer score:", computer_score) 
+        if not play_again(): 
+            show_final_result(user_score, computer_score)              
+            quit()    
+
+def show_final_result(user_score, computer_score):
+    print("Game Over!")
+    print("your score:", user_score)
+    print("computer score:", computer_score) 
             
-            if user_score > computer_score:
-                print("you are the winner. 🎉") 
+    if user_score > computer_score:
+        print("you are the winner. 🎉") 
             
-            elif computer_score > user_score:
-                print("computer is the winner.")
+    elif computer_score > user_score:
+        print("computer is the winner.")
             
-            else:
-                print("It's a Draw")        
-            quit()            
+    else:
+        print("It's a Draw")         
             
 def play_again():
     while True:
