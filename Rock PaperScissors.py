@@ -50,7 +50,7 @@ def play_game():
 
         if not play_again(): 
             show_final_result(user_score, computer_score)              
-            quit()    
+            return   
 
 def show_final_result(user_score, computer_score):
     print("Game Over!")
