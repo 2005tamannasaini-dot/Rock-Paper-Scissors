@@ -13,10 +13,10 @@ def get_result(user_choice, computer_choice):
     elif ((computer_choice == "rock" and user_choice == "paper")
         or (computer_choice == "paper" and user_choice == "scissors") 
         or (computer_choice == "scissors" and  user_choice == "rock")):
-        return "you win!."
+        return "win."
 
     else:
-        return "computer wins!"
+        return "lose"
     
 def get_user_choice():
     while True:
@@ -40,13 +40,17 @@ def play_game():
         print("Computer choice:", computer_choice )
 
         result = get_result(user_choice, computer_choice)
-        print(result)
 
-        if result == "you win!.":
+        if result == "win.":
+            print("you win!.")
             user_score += 1
 
-        elif result == "computer wins!":
+        elif result == "lose":
+            print("computer wins!")
             computer_score += 1
+
+        else:
+            print("It's a draw.")    
 
         if not play_again(): 
             show_final_result(user_score, computer_score)              
