@@ -8,12 +8,12 @@ choose = ["rock", "paper", "scissors"]
 
 def get_result(user_choice, computer_choice):
     if computer_choice == user_choice:
-        return "It's a draw."
+        return "draw"
 
     elif ((computer_choice == "rock" and user_choice == "paper")
         or (computer_choice == "paper" and user_choice == "scissors") 
         or (computer_choice == "scissors" and  user_choice == "rock")):
-        return "win."
+        return "win"
 
     else:
         return "lose"
@@ -41,8 +41,8 @@ def play_game():
 
         result = get_result(user_choice, computer_choice)
 
-        if result == "win.":
-            print("you win!.")
+        if result == "win":
+            print("you win!")
             user_score += 1
 
         elif result == "lose":
