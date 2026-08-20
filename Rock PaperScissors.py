@@ -21,7 +21,7 @@ def get_result(user_choice, computer_choice):
 def get_user_choice():
     while True:
         
-        user_choice = input("please choose(Rock/Paper/Scissors) :").lower()
+        user_choice = input("Please choose(Rock/Paper/Scissors) :").lower()
         if user_choice in choose:
             return user_choice
         
@@ -36,17 +36,17 @@ def play_game():
         computer_choice = random.choice(choose)    
         user_choice = get_user_choice()
 
-        print("your choice:", user_choice)
+        print("Your choice:", user_choice)
         print("Computer choice:", computer_choice )
 
         result = get_result(user_choice, computer_choice)
 
         if result == "win":
-            print("you win!")
+            print("You win!")
             user_score += 1
 
         elif result == "lose":
-            print("computer wins!")
+            print("Computer wins!")
             computer_score += 1
 
         else:
@@ -58,21 +58,21 @@ def play_game():
 
 def show_final_result(user_score, computer_score):
     print("Game Over!")
-    print("your score:", user_score)
-    print("computer score:", computer_score) 
+    print("Your score:", user_score)
+    print("Computer score:", computer_score) 
             
     if user_score > computer_score:
-        print("you are the winner. 🎉") 
+        print("You are the winner. 🎉") 
             
     elif computer_score > user_score:
-        print("computer is the winner.")
+        print("Computer is the winner.")
             
     else:
-        print("It's a Draw")         
+        print("It's a draw.")         
             
 def play_again():
     while True:
-        choice = input("Play Again?(yes/no):").lower()
+        choice = input("Play again? (yes/no):").lower()
         if choice == "yes":
             return True
 
@@ -80,6 +80,6 @@ def play_again():
             return False
 
         else:
-            print("please! choose only yes or no.")            
+            print("Please! choose only yes or no.")            
                 
 play_game()        
